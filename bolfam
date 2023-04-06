@@ -1,3 +1,3 @@
 #!/bin/sh
-theme_dmenu --prompt=Search_Query: --nostdin | tr " " "+" | awk '{print "https://lite.duckduckgo.com/lite/?q="$1}' | xargs --replace=url curl -X GET url | awk -F ">" '/link-text/ {print $2}' | awk -F "<" '{print $1}' | theme_dmenu -l 10 | awk '{print "https://"$1}' | xargs --replace=url htmldoc --format pdf --webpage url | zathura -
+dmenu --prompt=Search_Query: --nostdin | tr " " "+" | awk '{print "https://lite.duckduckgo.com/lite/?q="$1}' | xargs --replace=url curl -X GET url | awk -F ">" '/link-text/ {print $2}' | awk -F "<" '{print $1}' | dmenu -l 10 | awk '{print "https://"$1}' | xargs --replace=url htmldoc --format pdf --webpage url | zathura -
 
